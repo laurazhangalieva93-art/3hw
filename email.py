@@ -25,7 +25,7 @@ print(domain)
 email["short_body"] = email["body"][:10] + "..."
 print(email["short_body"])
 
-personal_domeins = [
+personal_domains = [
     "gmail.com",
     "list.ru",
     "yahoo.com",
@@ -36,22 +36,22 @@ personal_domeins = [
     "bk.ru"
 ]
 
-corporate_domeins = [
+corporate_domains = [
     "company.ru",
     "corporation.com",
     "university.edu",
     "organisation.org"]
 
-personal_domeins = list(set(personal_domeins))
-corporate_domeins = list(set(corporate_domeins))
+personal_domains = list(set(personal_domains))
+corporate_domains = list(set(corporate_domains))
 
-print(personal_domeins)
-print(corporate_domeins)
+print(personal_domains)
+print(corporate_domains)
 
-common_domeins = list(set(personal_domeins) & set(corporate_domeins))
-print(common_domeins)
+common_domains = list(set(personal_domains) & set(corporate_domains))
+print(common_domains)
 
-is_corporate = domain in corporate_domeins
+is_corporate = domain in corporate_domains
 print(is_corporate)
 
 clean_body = email["body"].replace("\n", " ").replace("\t", " ")
@@ -77,6 +77,7 @@ email["masked_from"] = login[:2] + "***@" + domain
 
 print(email["masked_from"])
 
-personal_domeins.remove("list.ru")
-personal_domeins.remove("bk.ru")
-print(personal_domeins)
+personal_domains.remove("list.ru")
+if "bk.ru" in  personal_domains: personal_domains.remove("bk.ru")
+print(personal_domains)
+
